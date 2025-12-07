@@ -1,0 +1,16 @@
+name: Sync Forks
+
+on:
+  schedule:
+    - cron: '0 0 * * *'    # runs daily
+  workflow_dispatch:         # run manually
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Sync all forks
+      uses: dabreadman/sync-forks@v1.2.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
